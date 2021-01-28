@@ -56,7 +56,7 @@ for (let i=6; i<21; i++) {
         // before current hour
         if (i < currentHr) $('#row-'+i).css('background-color','rgb(250, 190, 190)');
         // current hour
-        if (i === currentHr) $('#row-'+i).css('background',`linear-gradient(180deg, rgb(250, 190, 190) ${percentOfHr-15}%, rgb(190, 250, 190) ${percentOfHr}%)`);
+        if (i === currentHr) $('#row-'+i).css('background',`linear-gradient(180deg, rgb(250, 190, 190) ${percentOfHr-10}%, rgb(190, 250, 190) ${percentOfHr+10}%)`);
         // after current hour
         if (i > currentHr) $('#row-'+i).css('background-color','rgb(190, 250, 190)');
     }
