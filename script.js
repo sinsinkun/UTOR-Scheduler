@@ -49,14 +49,14 @@ function saveData(id) {
 
 // modify background-color of all blocks to match day
 let currentHr = parseInt(moment().format('HH')); //24 hr format
-let percentOfHr = 100-Math.round((parseInt(moment().format('mm'))/60)*100); //0 to 100
+let percentOfHr = Math.round((parseInt(moment().format('mm'))/60)*100); //0 to 100
 
 for (let i=6; i<21; i++) {
     if ($('#row-'+i).length) {
         // before current hour
         if (i < currentHr) $('#row-'+i).css('background-color','rgb(250, 190, 190)');
         // current hour
-        if (i === currentHr) $('#row-'+i).css('background',`linear-gradient(0deg, rgb(190, 250, 190) ${percentOfHr}%, rgb(250, 190, 190) ${percentOfHr}%)`);
+        if (i === currentHr) $('#row-'+i).css('background',`linear-gradient(180deg, rgb(250, 190, 190) ${percentOfHr-15}%, rgb(190, 250, 190) ${percentOfHr}%)`);
         // after current hour
         if (i > currentHr) $('#row-'+i).css('background-color','rgb(190, 250, 190)');
     }
