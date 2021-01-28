@@ -49,7 +49,7 @@ function saveData(id) {
 
 // modify background-color of all blocks to match day
 let currentHr = parseInt(moment().format('HH')); //24 hr format
-let percentOfHr = Math.round((parseInt(moment().format('mm'))/60)*100); //0 to 100
+let percentOfHr = 100-Math.round((parseInt(moment().format('mm'))/60)*100); //0 to 100
 
 for (let i=6; i<21; i++) {
     if ($('#row-'+i).length) {
