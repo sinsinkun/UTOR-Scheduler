@@ -17,17 +17,14 @@ Object.entries(taskData).forEach(task => {
     $('#'+id).val(input);
 })
 
-// track all clicks on the document
-$(document).on('mousedown', newSelection );
+$(document).on('mousedown', newSelection ); // track all clicks on the document
 
 let currentDiv = '';
 function newSelection(event) {
     event.stopPropagation();
     if (currentDiv !== event.target.id) {
-        // save stuff for previous selection
-        saveData(currentDiv);
-        // track new selection
-        currentDiv = event.target.id;
+        saveData(currentDiv); // save stuff for previous selection
+        currentDiv = event.target.id; // track new selection
     }
 }
 
@@ -43,12 +40,14 @@ function saveData(id) {
 
 let currentHr = parseInt(moment().format('HH')); //24 hr format
 let percentOfHr = Math.round((parseInt(moment().format('mm'))/60)*100); //0 to 100
-
 // modify background-color of all blocks to match time of day
 for (let i=6; i<21; i++) {
     if ($('#row-'+i).length) {
         if (i < currentHr) $('#row-'+i).css('background-color','rgb(250, 190, 190)');
-        if (i === currentHr) $('#row-'+i).css('background',`linear-gradient(180deg, rgb(250, 190, 190) ${percentOfHr-10}%, rgb(190, 250, 190) ${percentOfHr+10}%)`);
+        if (i === currentHr) {
+            $('#row-'+i).css('background',`linear-gradient(180deg, rgb(250, 190, 190) ${percentOfHr-10}%, rgb(190, 250, 190) ${percentOfHr+10}%)`);
+            $('#row-'+i).css('box-shadow','0 0 8px #088');
+        }
         if (i > currentHr) $('#row-'+i).css('background-color','rgb(190, 250, 190)');
     }
 }
